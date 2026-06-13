@@ -524,3 +524,5 @@ src/
    * Free → basic tracking
    * Pro → insights + predictions
    * Premium → automation + recurring + full analytics
+
+---

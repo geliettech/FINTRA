@@ -126,18 +126,18 @@ After login or email verification → `/dashboard`
 
 ## 1. Overview (Home Dashboard)
 
-### Displays
+### Displays finance type
 
-* Total Balance
-* Income
-* Expenses
-* Savings
-* Investments
+* Total Balance - 0% from last month
+* Monthly Income - 0% from last month
+* Monthly Expenses(bills & wants) - 70%
+* Monthly Savings - 20% of Income
+* Monthly Investments - 10% of Income
 
 ### Charts
 
-* Income vs Expenses
-* Category breakdown
+* Category breakdown (pie chart)
+* Finance type breakdown(bar chart)
 
 ### Recent Activity
 
@@ -150,31 +150,11 @@ After login or email verification → `/dashboard`
 
 ### Features
 
-* Add / Edit / Delete transactions
+* Add Transactions
+* Filter by type
 * Filter by date
 * Filter by category
-
-### Categories
-
-* Income
-* Expenses (Needs)
-* Bills
-* Savings
-* Investments
-
-### Data Model
-
-```ts
-{
-  id: string;
-  userId: string;
-  type: "income" | "expense";
-  category: string;
-  amount: number;
-  date: Timestamp;
-  description?: string;
-}
-```
+* Transactions history(Date, Description, category, type, Amount, Actions(edit, delete, rename))
 
 ---
 

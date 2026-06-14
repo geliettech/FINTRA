@@ -1,243 +1,477 @@
 # FINTRA - Finance Management App
 
-A modern SaaS finance management application that helps users track income, expenses, savings, investments, and budgets with smart analytics, financial insights, and subscription-based features.
+A modern SaaS finance management application that helps users track income, expenses, savings, investments, and budgets with smart analytics, financial insights, subscription-based features, and AI-powered recommendations.
 
 ---
 
 # 🚀 Tech Stack
 
-* React (Frontend)
-* Firebase Authentication /React-hook-form / zod / Sonner (Auth & validation)
-* Firestore (Database)
-* Firebase Storage (Avatar uploads)
-* React Router (Navigation)
-* Recharts / Chart.js (Data visualization)
-* Context API / Zustand (State management)
-* Firebase Security Rules (authorization)
-* OpenAI API (Financial Insights Engine)
-* GitHub action cl/cd pipeline
-* pwa support
-* Jest (unit testing)
+## Frontend
+
+- React
+- React Router
+- Zustand (State Management)
+- React Hook Form
+- Zod
+- Sonner
+
+## Backend & Database
+
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Security Rules
+
+## Data Visualization
+
+- Recharts
+
+## AI Integration
+
+- OpenAI API (Financial Insights Engine)
+
+## Performance & Quality
+
+- Suspense
+- Jest
+- Code Splitting
+- Lazy Loaded Routes
+- React.memo
+- useMemo
+- useCallback
+- Debounced Search
+- Skeleton Loaders
+- Pagination
+- Empty States
+- Error Boundaries
+- Optimized Firestore Queries
+- Caching & Memoization
+- Responsive Design
+- Accessibility (WCAG)
+
+## DevOps
+
+- GitHub Actions CI/CD
+- Vercel Hosting
+
+## Progressive Web App
+
+- PWA Support
+- Service Workers
+- Offline Caching
 ---
-# ⚡ Performance & Engineering
 
-* Lazy-loaded modules
-* optimization & Memoization (use callback, useMemo, React.memo)
-* Debounced search
-* Skeleton loaders
-* Empty states
+# 🔒 Security
+
+- Firebase Security Rules
+- Protected Routes
+- Email Verification
+- Environment Variables Protection
+- Input Sanitization
+- Secure API Calls
+- Session Persistence
+- Logout From All Devices
 
 ---
 
-# 🏠 App Structure
+# 📁 App Structure
 
+```txt
+src/
+├── app/
+├── routes/
+├── pages/
+│   ├── landing/
+│   ├── auth/
+│   └── dashboard/
+├── components/
+│   ├── ui/
+│   ├── charts/
+│   ├── forms/
+│   └── layout/
+├── hooks/
+├── services/
+├── store/
+├── context/
+├── schemas/
+├── utils/
+├── firebase/
+├── assets/
+└── tests/
 ```
-/app-|/auth
-     |/dashboard
-     |page.jsx(landing page)
-```
----
-# GitHub action cl/cd pipeline
-* Integrate CI/CD
----
-# pwa support
-* Integrate pwa
----
-# App Workflow 
-## 🌐 Landing Page Flow
-* Hero Section(including header- logo, features, pricing, FAQ, Login, Start for free)
-* Features Overview
-* Pricing Plans
-* FAQ
-* CTA
-* Footer
 
 ---
-## 🔐 Authentication Flow
 
-### 1. Register
+# 🔄 GitHub Actions CI/CD Pipeline
 
-Users create an account with:
+## Automated Workflow
 
-* Full Name/Email/Password/Confirm password
-*Google
-* verify email popup
+- Install Dependencies
+- Run ESLint
+- Run Unit Tests
+- Build Application
+- Deploy to Vercel
+- Pull Request Validation
+
+---
+
+# 📱 Progressive Web App (PWA)
+
+## Features
+
+- Installable on Mobile & Desktop
+- Offline Access
+- Service Worker Caching
+- Splash Screen
+- App Icons
+- Background Sync
+- Push Notifications
+
+---
+
+# 🌐 Landing Page Flow
+
+## Header
+
+- Logo
+- Features
+- Pricing
+- FAQ
+- Login
+- Start Free
+
+## Hero Section
+
+- Product Overview
+- Call-To-Action Buttons
+
+## Features Overview
+
+- Expense Tracking
+- Budget Management
+- Analytics
+- Financial Predictions
+- AI Assistant
+
+## Pricing Plans
+
+- Free
+- Pro
+- Premium
+
+## FAQ
+
+Frequently Asked Questions
+
+## CTA Section
+
+Start Managing Your Finances Today
+
+## Footer
+
+- About
+- Contact
+- Privacy Policy
+- Terms & Conditions
+- Social Links
+
+---
+
+# 🔐 Authentication Flow
+
+## Register
+
+### User Inputs
+
+- Full Name
+- Email
+- Password
+- Confirm Password
+
+### Sign-Up Methods
+
+- Email & Password
+- Google Authentication
 
 ### Firebase Methods
 
-* `createUserWithEmailAndPassword`
-* `signUpWithPopup (Google)`
-* `sendEmailVerification`
+- createUserWithEmailAndPassword()
+- signInWithPopup()
+- sendEmailVerification()
+
+### Features
+
+- Email Verification Popup
+- Form Validation
+- Password Strength Indicator
 
 ---
 
-## 2. Login
+## Login
 
-* Email/Password SignIn
-* Google Sign-In
+### Login Methods
+
+- Email & Password
+- Google Authentication
 
 ### Firebase Methods
 
-* `signInWithEmailAndPassword`
-* signInWithPopup(Google)
+- signInWithEmailAndPassword()
+- signInWithPopup()
 
 ---
 
-## 3. Forgot Password
+## Forgot Password
 
-* Email input
-* Reset link sent via Firebase
-* change password
-* confirm change password 
+### Flow
+
+- Enter Email
+- Receive Reset Link
+- Create New Password
+- Confirm New Password
+
 ### Firebase Method
 
-* `sendPasswordResetEmail`
+- sendPasswordResetEmail()
 
 ---
 
-## 4. Auth Guard
+## Auth Guard
 
-* Protect `/dashboard and email verification`
-* Redirect unauthenticated users to `/auth`
-* Persist session on refresh
+### Protected Routes
+
+- /dashboard
+
+### Features
+
+- Email Verification Check
+- Session Persistence
+- Auto Redirect
+- Protected Navigation
 
 ---
-
-
 
 # 📊 Dashboard Flow
 
-After login or email verification → `/dashboard`
+After successful authentication and email verification:
+
+```txt
+/auth → /dashboard
+```
 
 ---
 
-## 🧭 Dashboard Layout
+# 🧭 Dashboard Layout
 
-### Sidebar Navigation
+## Sidebar Navigation
 
-* Overview
-* Transactions
-* Budgets
-* Recurring
-* Analytics
-* Reports
-* Settings
-* Logout
+- Overview
+- Transactions
+- Budgets
+- Recurring
+- Analytics
+- Reports
+- Settings
+- Logout
+
+---
+
+## Top Navigation
+
+- Welcome Message
+- Global Search
+- Notifications
+- User Profile Dropdown
 
 ---
 
-### Top Bar
+# 🤖 AI Financial Assistant
 
-* Welcome message 👋
-* Search (transactions, budgets, categories)
-* Notifications 🔔
-* Profile dropdown (avatar + name)
+## Features
+
+- Chat-Based Financial Assistant
+- Spending Analysis
+- Budget Recommendations
+- Savings Suggestions
+- Investment Insights
+- Unusual Spending Detection
+- Personalized Financial Tips
+- Analytics Explanation
+- Financial Predictions
 
 ---
-### AI-assistant
-* chat with ai on financial assistant and your analytics 
 
 # 📈 Dashboard Modules
 
 ---
 
-## 1. Overview (Home Dashboard)
+# 1. Overview
 
-### Displays finance type
+## Financial Summary Cards
 
-* Total Balance - 0% from last month
-* Monthly Income - 0% from last month
-* Monthly Expenses(bills & wants) - 70%
-* Monthly Savings - 20% of Income
-* Monthly Investments - 10% of Income
+- Total Balance
+- Monthly Income
+- Monthly Expenses
+- Monthly Savings
+- Monthly Investments
+- Net Worth
+- Savings Rate
+- Financial Health Score
+
+---
+
+## Charts
+
+### Category Breakdown
+
+- Pie Chart
+
+### Finance Type Breakdown
+
+- Bar Chart
+
+---
+
+## Recent Activity
+
+- Recent Transactions
+- Budget Alerts
+- Upcoming Recurring Payments
+
+---
+
+# 2. Transactions
+
+## Features
+
+### Create Transaction
+
+### Filters
+
+- By Type
+- By Category
+- By Date
+
+### Search
+
+- Search Transactions
+
+### Transaction History Table
+
+| Date | Description | Category| Type | Amount | Actions(edit/delete) |
+
+---
+
+# 3. Budgets
+
+## Features
+
+### Budget Creation
+
+Create Budget Per Category
+
+### Budget Card
+
+- Category Name
+- Budget Amount
+- Amount Spent
+- Remaining Amount
+- Progress Indicator
+
+### Alerts
+
+- Overspending Alert
+- Budget Limit Warning
+
+### Additional Features
+- Recommended Budget Suggestions
+
+---
+
+# 4. Recurring Transactions
+
+## Features
+
+### Create upcoming Recurring Transaction
+
+### Active Recurring Table
+| Date | Description | Category | Type | Amount | Frequency
+
+### Upcoming Recurring cards
+| Date | Description | Category | Type | Amount | Frequency | action(pause/resume, delete) |
+
+---
+
+# 5. Analytics
+
+## Filters
+
+- From Date
+- To Date
+
+---
+
+## Analytics Components
 
 ### Charts
 
-* Category breakdown (pie chart)
-* Finance type breakdown(bar chart)
+- Category Breakdown (Pie Chart)
+- Finance Type Breakdown (Bar Chart)
+- Income vs Expense Comparison
+- Savings Growth
+- Investment Growth
 
-### Recent Activity
+### Tables
 
-* Latest transactions
-* Budget alerts
+- Budget Analytics
+- Expense Trends
+- Income Trends
 
----
+### Insights
 
-## 2. Transactions
-
-### Features
-
-* Add Transactions
-* Filter by type
-* Filter by date
-* Filter by category
-* Transactions history(Date, Description, category, type, Amount, Actions(rename, delete))
-
----
-
-## 3. Budgets
-
-### Features
-
-* Create budget per category
-* Category items (category name, budget amount, spent amount(automatic), remaining amount (automatic), progress indicators, remove category item).
-* Over spending budget alert
+- Spending Heatmap
+- Top Spending Categories
+- Cash Flow Analysis
+- Unusual Spending Alerts
+- Budget Warnings
+- Financial Predictions
 
 ---
 
-## 4. Recurring 
+# 6. Reports
 
-### Features
-
-* Add upcoming recurring transaction
-* Active recurring(Date, Description, category, type, Amount, frequecy, Actions(pause/on, delete, rename))
-* Upcoming(Date, Description, category, type, Amount, frequency, Actions(pause/on, delete, rename))
-
----
-
-## 5. Analytics
-### features
-* filter by date (from  to)
-* category breakdown (pie chart)
-* type breakdown (bar chart)
-* budget analytics(table)
-* expenses trends (table)
-* income trends (table)
-* savings growth
-* Investment growth
-* budget and unusual alerts
-* Predictions
+## Export Formats selection 
+- PDF (.pdf)
+- Excel (.xlsx)
+- CSV (.csv)
+## Download Report
+## Download History
 
 ---
 
-## 6. Reports
+# 7. Settings
 
-### Features
-* Filter monthly, Quarterly or yearly.
-*Monthly reports (free), Quarterly reports(pro), Yearly reports (Premium)*
-* export format drop-down (pdf, excel, CSV)
-* Export button
-*Free: 1 export/month, Pro: 4 exports/month, Premium: Unlimited*
+## Profile
+
+- Update Name
+- Update Email
+- Upload Avatar
 
 ---
 
-## 7. Settings
+## Preferences
 
-### Profile
+- Currency Selection
+- Notification Preferences
+- Theme Selection (Light/Dark Mode)
 
-* Update name
-* Update email
-* Upload avatar
+---
 
-### Preferences
+## Security
 
-* Currency selection
-* Notifications
-
-### Security
-
-* Change password
-* Logout all devices
+- Change Password
+- Logout All Devices
+- Delete Account
 
 ---
 
@@ -245,42 +479,112 @@ After login or email verification → `/dashboard`
 
 ---
 
-## 🆓 Free Plan
-* 20 Transactions creation
-* 8 Budgets creation 
-* 2 currencies suport
-* 4 recurring/month
-* 90 days analytics support
-* 1 report export/month
-* 3 finance prediction/month
+# 🆓 Free Plan
+
+### Limits
+
+- 20 Transactions
+- 8 Budgets
+- 2 Supported Currencies
+- 4 Recurring Transactions Per Month
+- 90 Days Analytics History
+- 1 Report Export Per Month
+- 3 Financial Predictions Per Month
 
 ---
 
-## ⭐ Pro Plan - #600
-* 120 Transactions creation
-* 20 Budgets creation 
-* 3 currencies suport
-* 8 recurring/month
-* 366 days analytics support
-* 4 report export/month
-* 8 finance prediction/mont
+# ⭐ Pro Plan — ₦600/Month
+
+### Limits
+
+- 120 Transactions
+- 20 Budgets
+- 3 Supported Currencies
+- 8 Recurring Transactions Per Month
+- 366 Days Analytics History
+- 4 Report Exports Per Month
+- 8 Financial Predictions Per Month
 
 ---
 
-## 👑 Premium Plan - #1000
+# 👑 Premium Plan — ₦1,000/Month
 
-* unlimited Transactions creation
-* unlimited Budgets creation 
-* 8 currencies suport
-* unlimited recurring support
-* unlimited days analytics support
-* unlimited report export
-* unlimited finance prediction/mont
+### Limits
 
----
-# 🧪 Unit Testing
-
-*
-*
+- Unlimited Transactions
+- Unlimited Budgets
+- 8 Supported Currencies
+- Unlimited Recurring Transactions
+- Unlimited Analytics History
+- Unlimited Report Exports
+- Unlimited Financial Predictions
 
 ---
+
+# 📢 Notifications
+
+## System Notifications
+
+- Budget Alerts
+- Overspending Alerts
+- Upcoming Recurring Payments
+- Subscription Expiry Alerts
+- Report Generation Alerts
+
+---
+
+# 📊 Monitoring & Analytics
+
+## Application Monitoring
+
+- Firebase Analytics
+- Error Tracking
+- User Activity Tracking
+- Performance Monitoring
+
+---
+
+# 🧪 Testing
+
+## Unit Testing (Jest)
+
+### Authentication
+
+- Login
+- Register
+- Password Reset
+
+### Validation
+
+- Form Validation
+- Zod Schemas
+
+### Business Logic
+
+- Budget Calculations
+- Savings Calculations
+- Financial Predictions
+
+---
+
+## Component Testing
+
+- Dashboard Cards
+- Charts
+- Forms
+- Tables
+
+---
+
+## Integration Testing
+
+- Authentication Flow
+- Transaction Creation
+- Budget Creation
+- Report Generation
+
+---
+
+# 🎯 Project Goal
+
+FINTRA helps users understand their financial health, manage spending, track savings, monitor investments, create budgets, receive AI-driven insights, and make smarter financial decisions through a secure and scalable SaaS platform.

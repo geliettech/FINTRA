@@ -103,7 +103,7 @@ After login or email verification → `/dashboard`
 * Overview
 * Transactions
 * Budgets
-* Recurring *(Premium)*
+* Recurring
 * Analytics
 * Reports
 * Settings
@@ -163,32 +163,12 @@ After login or email verification → `/dashboard`
 ### Features
 
 * Create budget per category
-* Track spending
-* Progress indicators
-* Overspending alerts
-
-### Example
-
-* Food budget: ₦30,000
-* Spent: ₦20,000
-* Remaining: ₦10,000
-
-### Data Model
-
-```ts
-{
-  id: string;
-  userId: string;
-  category: string;
-  limit: number;
-  spent: number;
-  period: "weekly" | "monthly";
-}
-```
+* Category items (category name, budget amount, spent amount(automatic), remaining amount (automatic), progress indicators).
+* Over spending budget alert
 
 ---
 
-## 4. Recurring (Premium)
+## 4. Recurring 
 
 ### Features
 
@@ -210,41 +190,27 @@ After login or email verification → `/dashboard`
 ---
 
 ## 5. Analytics
-
-### Insights
-
-* Category trends
-* Monthly comparison
-* Spending behavior patterns
+### features
+* filter by date (from  to)
+* category breakdown (pie chart)
+* type breakdown (bar chart)
+* expenses trends (table)
+* income trends (table)
+* savings growth
+* Investment growth
+* budget and unusual alerts
 * Predictions (Pro/Premium)
-
-### Charts
-
-* Expense breakdown
-* Income trends
-* Savings growth
 
 ---
 
 ## 6. Reports
 
 ### Features
-
-* Monthly reports
-* Quarterly reports
-* Yearly reports (Premium)
-
-### Export Limits
-
-* Free: 1 export/month
-* Pro: 4 exports/month
-* Premium: Unlimited
-
-### Formats
-
-* PDF
-* CSV
-* Excel
+* Filter monthly, Quarterly or yearly.
+*Monthly reports (free), Quarterly reports(pro), Yearly reports (Premium)*
+* export format drop-down (pdf, excel, cvs)
+* Export button
+*Free: 1 export/month, Pro: 4 exports/month, Premium: Unlimited*
 
 ---
 
@@ -259,7 +225,6 @@ After login or email verification → `/dashboard`
 ### Preferences
 
 * Currency selection
-* Theme (Light/Dark)
 * Notifications
 
 ### Security
@@ -274,13 +239,12 @@ After login or email verification → `/dashboard`
 ---
 
 ## 🆓 Free Plan
-
-* Basic dashboard
 * Transactions
 * Budgets
 * 4 currencies
+* monthly analytics
 * 1 report export/month
-* Limited ai financial insights
+* unlimited financial insights
 
 ---
 

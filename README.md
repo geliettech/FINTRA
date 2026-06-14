@@ -13,7 +13,7 @@ A modern SaaS finance management application that helps users track income, expe
 * React Router (Navigation)
 * Recharts / Chart.js (Data visualization)
 * Context API / Zustand (State management)
-* Firebase Security Rules
+* Firebase Security Rules (secure database)
 * OpenAI API (Financial Insights Engine)
 * Jest (testing)
 
@@ -47,15 +47,14 @@ Users create an account with:
 ### Firebase Methods
 
 * `createUserWithEmailAndPassword`
-* `signInWithPopup (Google)`
+* `signUpWithPopup (Google)`
 * `sendEmailVerification`
 
 ---
 
 ## 2. Login
 
-* Email
-* Password
+* Email/Password SignIn
 * Google Sign-In
 
 ### Firebase Methods

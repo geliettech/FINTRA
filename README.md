@@ -61,18 +61,6 @@ A modern SaaS finance management application that helps users track income, expe
 - Offline Caching
 ---
 
-# 🔒 Security
-
-- Firebase Security Rules
-- Protected Routes
-- Email Verification
-- Environment Variables Protection
-- Input Sanitization
-- Secure API Calls
-- Session Persistence
-- Logout From All Devices
-
----
 
 # 📁 App Structure
 
@@ -285,9 +273,9 @@ After successful authentication and email verification:
 
 ---
 
-# 🤖 AI Financial Assistant
+## AI Financial Assistant
 
-## Features
+### Features
 
 - Chat-Based Financial Assistant
 - Spending Analysis
@@ -541,6 +529,19 @@ Create Budget Per Category
 - Error Tracking
 - User Activity Tracking
 - Performance Monitoring
+
+---
+
+# 🔒 Security Check
+
+- Firebase Security Rules
+- Protected Routes
+- Email Verification
+- Environment Variables Protection
+- Input Sanitization
+- Secure API Calls
+- Session Persistence
+- Logout From All Devices
 
 ---
 

@@ -1,4 +1,4 @@
-# PENDA - Finance Management App
+# FINTRA - Finance Management App
 
 A modern SaaS finance management application that helps users track income, expenses, savings, investments, and budgets with smart analytics, financial insights, and subscription-based features.
 
@@ -18,10 +18,10 @@ A modern SaaS finance management application that helps users track income, expe
 * Jest (testing)
 
 ---
-# ⚡ Performance & Engineering Improvements
+# ⚡ Performance & Engineering
 
-* Pagination for transactions
-* Lazy-loaded dashboard modules
+* Lazy-loaded modules
+* optimization
 * Memoization (useMemo, React.memo)
 * Debounced search
 * Skeleton loaders
@@ -164,7 +164,7 @@ After login or email verification → `/dashboard`
 * Filter by type
 * Filter by date
 * Filter by category
-* Transactions history(Date, Description, category, type, Amount, Actions(edit, delete, rename))
+* Transactions history(Date, Description, category, type, Amount, Actions(rename, delete))
 
 ---
 
@@ -173,7 +173,7 @@ After login or email verification → `/dashboard`
 ### Features
 
 * Create budget per category
-* Category items (category name, budget amount, spent amount(automatic), remaining amount (automatic), progress indicators).
+* Category items (category name, budget amount, spent amount(automatic), remaining amount (automatic), progress indicators, remove category item).
 * Over spending budget alert
 
 ---
@@ -182,14 +182,9 @@ After login or email verification → `/dashboard`
 
 ### Features
 
-* Add recurring income/expense
-* Frequency:
-
-  * Daily
-  * Weekly
-  * Monthly
-  * Yearly
-* Pause / Edit / Delete
+* Add recurring transaction
+* Active recurring(Date, Description, category, type, Amount, Actions(pause/on, delete, rename))
+* Upcoming(Date, Description, category, type, Amount, frequency, Actions(pause/on, delete, rename))
 
 ### Examples
 
@@ -204,6 +199,7 @@ After login or email verification → `/dashboard`
 * filter by date (from  to)
 * category breakdown (pie chart)
 * type breakdown (bar chart)
+* budget analytics(table)
 * expenses trends (table)
 * income trends (table)
 * savings growth
@@ -259,7 +255,7 @@ After login or email verification → `/dashboard`
 
 ---
 
-## ⭐ Pro Plan
+## ⭐ Pro Plan - #600
 * 120 Transactions creation
 * 20 Budgets creation 
 * 3 currencies suport
@@ -270,7 +266,7 @@ After login or email verification → `/dashboard`
 
 ---
 
-## 👑 Premium Plan
+## 👑 Premium Plan - #1000
 
 * unlimited Transactions creation
 * unlimited Budgets creation 

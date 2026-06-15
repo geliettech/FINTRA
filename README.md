@@ -10,7 +10,7 @@ A modern SaaS finance management application that helps users track income, expe
 
 - React
 - React Router
-- Zustand (State Management)
+- Zustand + context (State Management)
 - React Hook Form
 - Zod
 - Sonner

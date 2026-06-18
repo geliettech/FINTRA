@@ -17,7 +17,7 @@ function App() {
           <Route path="/" exact element={<LandingPage />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
-        <Route path="/*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Router>
     </AuthProvider>

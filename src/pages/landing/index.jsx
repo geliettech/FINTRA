@@ -16,7 +16,7 @@ const LandingPage = () => {
             * Features Overview
             * Pricing Plans
             *  faq
-            * CTA 
+            * CTA
             * Footer
             <p>Sign In With Google to Continue</p>
             <button className="google-btn" onClick={handleGetStarted}>

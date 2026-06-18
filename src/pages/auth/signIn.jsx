@@ -33,7 +33,14 @@ const SignIn = () => {
     // Sign In
     const signIn = async () => {
         try {
-            await signInWithEmailAndPassword(auth, logInEmail, logInPassword);
+            const result = await signInWithEmailAndPassword(auth, logInEmail, logInPassword);
+            const authInfo = {
+                userID: result.user.uid,
+                email: result.user.email,
+                isAuth: true
+            }
+            localStorage.setItem("auth", JSON.stringify(authInfo));
+            navigate("/dashboard");
         } catch (err) {
             console.error(err);
         }

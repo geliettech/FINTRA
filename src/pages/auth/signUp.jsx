@@ -11,7 +11,7 @@ import {
 
 
 
-const SignIn = () => {
+const SignUp = () => {
 
     const navigate = useNavigate();
     const { isAuth } = useGetUserInfo()
@@ -35,7 +35,7 @@ const SignIn = () => {
 
 
 
-    // Sign In with Google
+    // Sign Up / Sign In with Google
     const signInWithGoogle = async () => {
         const results = await signInWithPopup(auth, googleProvider)
         const authInfo = {
@@ -45,13 +45,20 @@ const SignIn = () => {
             isAuth: true
         }
         localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/sign-in")
+        navigate("/dashboard")
     };
 
         // Register
     const register = async () => {
         try {
-            await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+            const result = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+            const authInfo = {
+                userID: result.user.uid,
+                email: result.user.email,
+                isAuth: true
+            }
+            localStorage.setItem("auth", JSON.stringify(authInfo));
+            navigate("/dashboard");
         } catch (err) {
             console.error(err);
         }
@@ -59,7 +66,7 @@ const SignIn = () => {
 
 
     if (isAuth) {
-        return <Navigate to="/sign-in" />
+        return <Navigate to="/dashboard" />
     }
 
     return (
@@ -87,7 +94,7 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignUp;
 
 
 

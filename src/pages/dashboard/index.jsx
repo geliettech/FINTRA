@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useAddTransactions } from "../../hooks/useAddTransactions"
 import { useGetTransactions } from "../../hooks/useGetTransactions"
-// import { useGetUserInfo } from "../../hooks/useGetUserInfo"
 import { useAuth } from "../../Layout/AuthProvider";
 import { useNavigate } from "react-router";
 
@@ -10,7 +9,6 @@ import { useNavigate } from "react-router";
 const Dashboard = () => {
   const { addTransactions } = useAddTransactions()
   const { transactions } = useGetTransactions()
-  // const { name, profilePic } = useGetUserInfo();
 
 const { logout, user } = useAuth();
     const navigate = useNavigate()

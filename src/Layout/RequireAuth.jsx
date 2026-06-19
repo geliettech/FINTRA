@@ -14,13 +14,28 @@
 // };
 
 // export default RequireAuth;
-import { Navigate } from "react-router";
-import { useGetUserInfo } from "../hooks/useGetUserInfo";
+
+
+
+
+import { Navigate, useLocation } from "react-router";
+import { useAuth } from "./AuthProvider";
 
 const RequireAuth = ({ children }) => {
-  const { isAuth } = useGetUserInfo();
+  const location = useLocation();
+  const { user } = useAuth();
 
-  return isAuth ? children : <Navigate to="/sign-in" />;
+  if (!user?.isAuth) {
+    return (
+      <Navigate
+        to="/sign-in"
+        replace
+        state={{ path: location.pathname }}
+      />
+    );
+  }
+
+  return children;
 };
 
 export default RequireAuth;

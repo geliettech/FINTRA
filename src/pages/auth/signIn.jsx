@@ -1,96 +1,220 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+// import { auth, googleProvider } from "../../config/firebase";
+// import { Navigate, useNavigate } from "react-router";
+// import { useGetUserInfo } from "../../hooks/useGetUserInfo";
+// import {
+//     onAuthStateChanged,
+//     signInWithEmailAndPassword,
+//     signInWithPopup
+// } from "firebase/auth";
+
+
+
+// const SignIn = () => {
+
+//     const navigate = useNavigate();
+//     const { isAuth } = useGetUserInfo()
+//  const [logInEmail, setLogInEmail] = useState("");
+//     const [logInPassword, setLogInPassword] = useState("");
+//     const [user, setUser] = useState(null);
+
+//     // Run once on component mount
+//     useEffect(() => {
+//         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+//             setUser(currentUser);
+//         });
+
+//         // Cleanup listener when component unmounts
+//         return () => unsubscribe();
+//     }, []);
+
+
+
+//     // Sign In
+//     const signIn = async () => {
+//         try {
+//             const result = await signInWithEmailAndPassword(auth, logInEmail, logInPassword);
+//             const authInfo = {
+//                 userID: result.user.uid,
+//                 email: result.user.email,
+//                 password: result.user.password,
+//                 isAuth: true
+//             }
+//             localStorage.setItem("auth", JSON.stringify(authInfo));
+//             navigate("/dashboard");
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     };
+
+
+//     // Sign In with Google
+//     const signInWithGoogle = async () => {
+//         const results = await signInWithPopup(auth, googleProvider)
+//         const authInfo = {
+//             userID: results.user.uid,
+//             name: results.user.displayName,
+//             profilePic: results.user.photoURL,
+//             isAuth: true
+//         }
+//         localStorage.setItem("auth", JSON.stringify(authInfo));
+//         navigate("/dashboard")
+//     };
+
+//     if (isAuth) {
+//         return <Navigate to="/dashboard" />
+//     }
+
+//     return (
+//         <div className="auth-card">
+//             <p>Sign In to Continue</p>
+//                 <input
+//                     placeholder="Email..."
+//                     type="email"
+//                     value={logInEmail}
+//                     onChange={(e) => setLogInEmail(e.target.value)}
+//                 />
+//                 <input
+//                     placeholder="Password..."
+//                     type="password"
+//                     value={logInPassword}
+//                     onChange={(e) => setLogInPassword(e.target.value)}
+//                 />
+//                 <button className="primary-btn" onClick={signIn}>
+//                     Sign In
+//                 </button>
+//                 <button className="google-btn" onClick={signInWithGoogle}>
+//                     Sign In with Google
+//                 </button>
+//         </div>
+//     );
+// };
+
+// export default SignIn;
+
+
+
+
+
+import { useState } from "react";
 import { auth, googleProvider } from "../../config/firebase";
-import { Navigate, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { useGetUserInfo } from "../../hooks/useGetUserInfo";
+import { useAuth } from "../../Layout/AuthProvider";
+
 import {
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signInWithPopup
+  signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 
-
-
 const SignIn = () => {
+  const navigate = useNavigate();
+  const { isAuth } = useGetUserInfo();
+  const authContext = useAuth();
 
-    const navigate = useNavigate();
-    const { isAuth } = useGetUserInfo()
- const [logInEmail, setLogInEmail] = useState("");
-    const [logInPassword, setLogInPassword] = useState("");
-    const [user, setUser] = useState(null);
+  const [logInEmail, setLogInEmail] = useState("");
+  const [logInPassword, setLogInPassword] = useState("");
 
-    // Run once on component mount
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-        });
+  const signIn = async () => {
+    try {
+      const result = await signInWithEmailAndPassword(
+        auth,
+        logInEmail,
+        logInPassword
+      );
 
-        // Cleanup listener when component unmounts
-        return () => unsubscribe();
-    }, []);
+      const authInfo = {
+        userID: result.user.uid,
+        email: result.user.email,
+        name: result.user.displayName || "",
+        profilePic: result.user.photoURL || "",
+        isAuth: true,
+      };
 
+      localStorage.setItem("auth", JSON.stringify(authInfo));
 
+      authContext.login(authInfo);
 
-    // Sign In
-    const signIn = async () => {
-        try {
-            const result = await signInWithEmailAndPassword(auth, logInEmail, logInPassword);
-            const authInfo = {
-                userID: result.user.uid,
-                email: result.user.email,
-                password: result.user.password,
-                isAuth: true
-            }
-            localStorage.setItem("auth", JSON.stringify(authInfo));
-            navigate("/dashboard");
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
-
-    // Sign In with Google
-    const signInWithGoogle = async () => {
-        const results = await signInWithPopup(auth, googleProvider)
-        const authInfo = {
-            userID: results.user.uid,
-            name: results.user.displayName,
-            profilePic: results.user.photoURL,
-            isAuth: true
-        }
-        localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/dashboard")
-    };
-
-    if (isAuth) {
-        return <Navigate to="/dashboard" />
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
     }
+  };
+  
 
-    return (
-        <div className="auth-card">
-            <p>Sign In to Continue</p>
-                <input
-                    placeholder="Email..."
-                    type="email"
-                    value={logInEmail}
-                    onChange={(e) => setLogInEmail(e.target.value)}
-                />
-                <input
-                    placeholder="Password..."
-                    type="password"
-                    value={logInPassword}
-                    onChange={(e) => setLogInPassword(e.target.value)}
-                />
-                <button className="primary-btn" onClick={signIn}>
-                    Sign In
-                </button>
-                <button className="google-btn" onClick={signInWithGoogle}>
-                    Sign In with Google
-                </button>
-        </div>
-    );
+  const signInWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+
+      const authInfo = {
+        userID: result.user.uid,
+        name: result.user.displayName,
+        email: result.user.email,
+        profilePic: result.user.photoURL,
+        isAuth: true,
+      };
+
+      localStorage.setItem("auth", JSON.stringify(authInfo));
+
+      authContext.login(authInfo);
+
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+
+  if (isAuth) {
+    return <Navigate to="/dashboard" />;
+  }
+
+  return (
+    <div className="auth-card">
+      <h2>Sign In</h2>
+
+      <input
+        type="email"
+        placeholder="Email"
+        value={logInEmail}
+        onChange={(e) => setLogInEmail(e.target.value)}
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        value={logInPassword}
+        onChange={(e) => setLogInPassword(e.target.value)}
+      />
+
+      <button onClick={signIn}>Sign In</button>
+
+      <button onClick={signInWithGoogle}>
+        Sign In With Google
+      </button>
+      <div className="">
+         Don&apos;t have an account?{" "}
+           <Link to="/sign-up" className="sign-up-link">
+            Sign Up
+        </Link>
+      </div>
+     
+    </div>
+  );
 };
 
 export default SignIn;
+
+
+
+
+
+
+
+
+
+
 
 
 

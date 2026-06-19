@@ -1,17 +1,20 @@
 import { useState } from "react"
 import { useAddTransactions } from "../../hooks/useAddTransactions"
 import { useGetTransactions } from "../../hooks/useGetTransactions"
-import { useGetUserInfo } from "../../hooks/useGetUserInfo"
-import { signOut } from "firebase/auth"
-import { auth } from "../../config/firebase"
+// import { useGetUserInfo } from "../../hooks/useGetUserInfo"
+import { useAuth } from "../../Layout/AuthProvider";
 import { useNavigate } from "react-router";
+
+
 
 const Dashboard = () => {
   const { addTransactions } = useAddTransactions()
   const { transactions } = useGetTransactions()
-  const { name, profilePic } = useGetUserInfo();
+  // const { name, profilePic } = useGetUserInfo();
 
-  const navigate = useNavigate()
+const { logout, user } = useAuth();
+    const navigate = useNavigate()
+
 
   const [description, setDescription] = useState("")
   const [transactionAmount, setTransactionAmount] = useState(0)
@@ -34,15 +37,11 @@ const Dashboard = () => {
 
   // Sign Out
   const logOut = async () => {
-    try {
-      await signOut(auth);
-      navigate("/")
-      localStorage.clear("");
-    } catch (err) {
-      console.error(err);
-    }
+    await logout();
+    navigate("/");
   };
 
+  
   const income = transactions
     .filter(totalIncome => totalIncome.transactionType === "income")
     .reduce((acc, totalIncome) => acc + Number(totalIncome.transactionAmount), 0);
@@ -60,8 +59,8 @@ const Dashboard = () => {
           <button className="logout-btn" onClick={logOut}>
             Sign Out
           </button>
-          {profilePic && <div><img src={profilePic} alt="profile-pic" style={{ width: "100px" }} /></div>}
-          <h1>{name}&apos;s Expense Tracker</h1>
+          {user?.profilePic && <div><img src={user?.profilePic} alt="profile-pic" style={{ width: "100px" }} /></div>}
+          <h1>{user?.name}&apos;s Expense Tracker</h1>
           <div className="balance">
             <h3>Your Balance</h3>
             <h2>${balance.toFixed(2)}</h2>

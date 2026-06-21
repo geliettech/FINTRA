@@ -13,7 +13,7 @@ const LandingPage = () => {
 
 
     return (
-        <div className="auth-card">
+        <main className="overflow-hidden">
             <div>
                 <button
                     onClick={toggleTheme}
@@ -49,7 +49,7 @@ const LandingPage = () => {
             <div>
                 * Footer
             </div>
-        </div>
+        </main>
     );
 };
 

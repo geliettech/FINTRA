@@ -5,6 +5,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* =========================
+   THEME TOKENS
+========================= */
+@theme {
+
+  /* Fonts */
+  --font-inter: Inter, sans-serif;
+  --font-poppins: Poppins, sans-serif;
+
+
+
+}
+
+/* =========================
    Theme Variables
 ========================= */
 
@@ -33,6 +46,8 @@
   --color-card: var(--card);
   --color-border: var(--border);
 
+
+   /* --------- Colors --------- */
   /* Primary - Blue */
   --color-p1: rgba(56, 118, 139, 1);
   --color-p2: rgba(26, 92, 138, 1);
@@ -57,9 +72,74 @@
   --color-warning: rgba(250, 234, 4, 1);
   --color-neutral: rgba(134, 134, 134, 1);
 
+  
+  /* Box Shadows */
+  --shadow-100: 0px 4px 4px rgba(0, 0, 0, 0.25),
+                0px 16px 24px rgba(0, 0, 0, 0.25),
+                inset 0px 3px 6px #1959AD;
+
+  --shadow-200: 0px 4px 4px rgba(0, 0, 0, 0.25),
+                0px 16px 24px rgba(0, 0, 0, 0.25),
+                inset 0px 4px 10px #3391FF;
+
+  --shadow-300: 0px 4px 4px rgba(0, 0, 0, 0.25),
+                0px 16px 24px rgba(0, 0, 0, 0.25),
+                inset 0px 3px 6px #1959AD;
+
+  --shadow-400: inset 0px 2px 4px 0 rgba(255, 255, 255, 0.05);
+
+  --shadow-500: 0px 16px 24px rgba(0, 0, 0, 0.25),
+                0px -14px 48px rgba(40, 51, 111, 0.7);
+
   /* Fonts */
-  --font-poppins: "Poppins", sans-serif;
   --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  
+  /* Spacing */
+  --spacing-22: 88px;
+  --spacing-100: 100px;
+  --spacing-330: 330px;
+  --spacing-388: 388px;
+  --spacing-400: 400px;
+  --spacing-440: 440px;
+  --spacing-512: 512px;
+  --spacing-640: 640px;
+  --spacing-960: 960px;
+  --spacing-1230: 1230px;
+  
+  /* Percentage spacing */
+  --spacing-1-5: 20%;
+  --spacing-2-5: 40%;
+  --spacing-3-5: 60%;
+  --spacing-4-5: 80%;
+
+  --spacing-3-20: 15%;
+  --spacing-7-20: 35%;
+  --spacing-9-20: 45%;
+  --spacing-11-20: 55%;
+  --spacing-13-20: 65%;
+  --spacing-15-20: 75%;
+  --spacing-17-20: 85%;
+  --spacing-19-20: 95%;
+
+  /* Z-index */
+  --z-1: 1;
+  --z-2: 2;
+  --z-4: 4;
+  
+  /* Line height */
+  --leading-12: 48px;
+
+  /* Border radius */
+  --radius-14: 14px;
+  --radius-20: 20px;
+  --radius-40: 40px;
+  --radius-half: 50%;
+  --radius-7xl: 40px;
+
+  /* Transition */
+  --transition-border-color: border-color;
 }
 
 /* =========================
@@ -110,6 +190,36 @@
    utilities 
 ========================= */
 @layer utilities {
+/* flex system */
+.flex-50 {
+  flex: 0 0 50%;
+}
+
+.flex-320 {
+  flex: 1px 0 320px;
+}
+
+.flex-300 {
+  flex: 0 0 300px;
+}
+
+.flex-540 {
+  flex: 0 0 540px;
+}
+
+.flex-280 {
+  flex: 0 0 280px;
+}
+
+.flex-256 {
+  flex: 0 0 256px;
+}
+
+.flex-100 {
+  flex: 0 0 100%;
+}
+
+/* headings */
   .h-num {
     @apply font-inter text-[72px] font-bold leading-21;
   }

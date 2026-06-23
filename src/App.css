@@ -22,11 +22,12 @@
 ========================= */
 
 :root {
-  --background: var(--color-gray);
+  --background: var(--color-white);
   --foreground: var(--color-p4);
 
-  --card: var(--color-white);
+  --card: var(--color-gray);
   --border: var(--color-neutral);
+  --btn: var(--color-s1);
 }
 
 .dark {
@@ -35,6 +36,7 @@
 
   --card: var(--color-p3);
   --border: var(--color-s4);
+  --btn: var(--color-s4);
 }
 
 /* =========================
@@ -45,6 +47,7 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-border: var(--border);
+  --color-btn: var(--btn);
 
 
    /* --------- Colors --------- */
@@ -180,12 +183,22 @@
 /* =========================
    Components
 ========================= */
-
 @layer components {
-  .card {
-    @apply rounded-xl p-4 transition-colors duration-300 bg-card border border-border;
+.container {
+    @apply max-w-7xl mx-auto px-6 py-4 lg:py-6 lg:px-16 ;
   }
+  .nav-li {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md transition-colors duration-300 text-foreground;
+  }
+
+  .btn-primary {
+   @apply font-medium bg-btn text-white hover:bg-card/60 px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105 cursor-pointer;
+  }
+
 }
+
+
+
 /* =========================
    utilities 
 ========================= */
